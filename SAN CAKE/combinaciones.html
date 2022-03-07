@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DULCES PEDIDOS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="styles/styleform.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="contenedor">
+    <h1>PEDIDOS CAKE</h1>
+    <form method="POST" id="formulario">
+      <!-- Lista de campos -->
+      <ul>
+        <li class="fila">
+          <!-- text -->
+          <input type="text" id="nombre" name="fullname" maxlength="30" size="30" placeholder="(nombre)"
+            required="required" autofocus="autofocus" />
+          <label for="nombre" class="propiedad">Nombre</label>
+          <!--hidden -->
+          <input type="hidden" id="codigo" name="code" value="25" />
+        </li>
+        <!-- email -->
+        <li class="fila">
+          <input type="email" id="email" name="email" maxlength="30" size="30" placeholder="(email)" />
+          <label for="email" class="propiedad">Email</label>
+        </li>
+        <!-- tel -->
+        <li class="fila">
+          <input type="tel" id="telefono" name="phonenumber" maxlength="9" size="11" placeholder="(teléfono)"
+            pattern="[0-9]{9}" />
+          <label for="telefono" class="propiedad">Teléfono</label>
+        </li>
+        <!-- date -->
+        <li class="fila">
+          <input type="date" id="fecha" name="birthdate" />
+          <label for="fecha" class="propiedad">Fecha del Pedido</label>
+        </li>
+        <!-- number -->
+        <li class="fila">
+          <input type="number" id="rebanadas" name="siblings" class="small" min="1" max="30" value="1" />
+          <label for="rebanadas" class="propiedad">Nº de Rebanadas</label>
+        </li>
+        <!-- color -->
+        <li class="fila">
+          <input type="color" id="color" value="#FF0000"
+            onchange="document.querySelector('#color-output').value = value;" />
+          <label for="color" class="propiedad">Color preferido de los adornos del pastel</label>
+          <output for="color" id="color-output">#FF0000</output>
+        </li>
+        <!-- select combo -->
+        <li class="fila">
+          <select id="adornos" name="studies" required="required">
+            <option value="">- Seleccione -</option>
+            <option value="Estrellas">Estrellas de Azucar</option>
+            <option value="Chispas">Chispas de Chocolate</option>
+            <option value="colores">Chispas de colores</option>
+            <option value="Brillantina">Brillantina</option>
+          </select>
+          <label for="adornos" class="propiedad">Seleccione el adorno de su preferencia</label>
+        </li>
+        <!-- select combo -->
+        <li class="fila">
+          <select id="sabores" name="studies" required="required">
+            <option value="">- Seleccione -</option>
+            <option value="Chocolate">Chocolate</option>
+            <option value="Vainilla">Vainilla</option>
+            <option value="Fresas">Fresas</option>
+            <option value="Oreo">Oreo</option>
+          </select>
+          <label for="sabores" class="propiedad">Seleccione el sabor de su preferencia</label>
+        </li>
+        <!-- Botonera -->
+        <li class="fila botonera">
+          <button type="submit">Aceptar</button>
+          <button type="reset">Reiniciar</button>
+        </li>
+      </ul>
+    </form>
+  </div>
+  <!-- partial -->
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+.container {
+  padding: 3rem;
+}
+
+#name {
+  color: #FFAFCC;
+}
+
+#inbox box-icon,
+#slopes box-icon,
+#entries box-icon {
+  fill: #FFAFCC;
+}
+
+body {
+  background-color: #F8EDEB ; 
+}

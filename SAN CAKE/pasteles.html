@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Nuestros Dulces Pasteles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="styles/stylepas.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <header>
+    <h1>{{ appTitle }}</h1>
+  </header>
+  <div class="grid">
+    <div class="col-sx">
+      <div class="products">
+        <h2>NUESTROS DULCES PASTELES</h2>
+        <ul class="products-list">
+          <li class="product" v-for="(prod, ind) in products" :key="'ind-' + ind">
+            <div class="box">
+              <div class="image"></div>
+              <h3 class="title">{{ prod.title }}</h3>
+              <p class="price">{{ prod.price | currency }}</p>
+              <button @click="addItem(prod)">AGREGAR A LA CAJA</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-dx">
+      <div class="cart">
+        <h2>TU CAJA</h2>
+        <table class="cart-list" v-if="cart.length">
+          <thead>
+            <tr>
+              <th class="head-title">Producto</th>
+              <th class="head-price">Precio</th>
+              <th class="head-quantity">Cantidad</th>
+              <th class="head-total">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="cart-item" v-for="(item, id) in cart" :key="'id-' + id">
+              <td>
+                <h4 class="title">{{ item.title }}</h4>
+              </td>
+              <td>
+                <div class="price">{{ item.price | currency }}</div>
+              </td>
+              <td>
+                <div class="quantity">
+                   {{ item.quantity }}<span class="qty-handler"><span @click="add(item)">+</span><span @click="sub(item)">-</span></span></div>
+              </td>
+              <td>
+                <div class="total">{{ item.price * item.quantity | currency }}</div>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="3">
+                <h4 class="total-title">Total</h4>
+              </th>
+              <th>{{ total | currency }}</th>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="empty-contents" v-else="v-else">
+          <div class="draw">
+            <div class="cactus">
+              <div class="arm"></div>
+              <div class="arm"></div>
+            </div>
+            <div class="cactus">
+              <div class="arm"></div>
+              <div class="arm"></div>
+            </div>
+            <div class="cactus">
+              <div class="arm"></div>
+              <div class="arm"></div>
+            </div>
+            <div class="sky">
+              <div class="montain"></div>
+              <div class="montain two"></div>
+              <div class="sun"></div>
+            </div>
+          </div>
+          <p class="no-items-text">Su caja está realmente vacía</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js'></script><script  src="js/script.js"></script>
+
+</body>
+</html>
